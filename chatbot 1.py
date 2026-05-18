@@ -11,7 +11,7 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.runnables import RunnablePassthrough
 from langchain_core.output_parsers import StrOutputParser
 
-st.header("Assistenza online")
+st.header("Asinu Ale online")
 
 st.image("Chatbot.webp", width=400)
 
