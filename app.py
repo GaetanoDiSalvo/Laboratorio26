@@ -33,22 +33,18 @@ st.markdown(
 
 st.header("Assistenza online")
 
-st.image("REAL CHATBOT/Chatbot.webp", width=500)
+st.image("Chatbot.webp", width=500)
 
-documento = "REAL CHATBOT/Costituzione_italiana.pdf"
+documento = "Costituzione_italiana.pdf"
 
 # Estrazione del contenuto e spezzettamento
 if documento is not None:
-    @st.cache_data(show_spinner="Sto leggendo il PDF...")
+    @st.cache_data(show_spinner="Sto leggendo il pdf...")
     def estrai_testo_pdf(documento: str) -> str:
         with pdfplumber.open(documento) as pdf:
-            # st.write(f"Pagine totali: {len(pdf.pages)} - Comincio la scansione...")
             testo = ""
             for pagina in pdf.pages:
-                # Se la pagina è null menttiamo ""
-                testo_pagina = pagina.extract_text() or ""
-                testo = testo + testo_pagina + "\n"
-                # testo += pagina.extract_text() + "\n"
+                testo = testo + pagina.extract_text() + "\n"
         return testo.strip()
     
     testo = estrai_testo_pdf(documento)
